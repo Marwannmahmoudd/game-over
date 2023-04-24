@@ -37,7 +37,7 @@ startVideo(video:any , img:any){
 
 ngOnInit(): void {
 
-    this.loaderservices.isloader.next(true)
+  this.loaderservices.isloader.next(true)
 
 
  
