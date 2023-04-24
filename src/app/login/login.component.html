@@ -1,0 +1,63 @@
+
+ <!-- ========== End Fixed ========== -->
+ <main class="container login min-vh-100 hstack">
+    <section class="login-area shadow w-100 rounded overflow-hidden">
+       <div class="row g-0">
+          <div class="col-lg-5 d-none d-md-block">
+             <div class="image"></div>
+          </div>
+          <div class="col-lg-7">
+             <div class="p-4">
+                <header class="text-center">
+                   <img src="./assets/logo.png" class="w-25">
+                   <h1>Log in to GameOver</h1>
+                </header>
+
+                <form (ngSubmit)="formmmm(login)" [formGroup]="login" class="row g-3 my-4" #ngForm="ngForm">
+                   <div class="col-12">
+                      <div class="form-data">
+                        <input type="email" id="email" class="form-control" placeholder="Email Address" formControlName="email">
+                        <div *ngIf="login.get('email')?.errors && ngForm.submitted || login.get('email')?.errors && login.get('email')?.touched" class="alert alert-danger" >
+                           <p class="m-0 text-danger" *ngIf="login.get('email')?.getError('required')">email is required</p>
+                           <p class="m-0 text-danger" *ngIf="login.get('email')?.getError('email')">email is InValid</p>
+                       </div> 
+                      </div>
+                   </div>
+                   <div class="col-12">
+                      <div class="form-data">
+                        <input type="password" id="password" class="form-control" placeholder="Password" formControlName="password">
+                       
+                        <div *ngIf="login.get('password')?.errors && ngForm.submitted || login.get('password')?.errors && login.get('password')?.touched" class="alert alert-danger" >
+                            <p class="m-0 text-danger" *ngIf="login.get('password')?.getError('required')">password is required</p>
+                            <p class="m-0 text-danger" *ngIf="login.get('password')?.getError('pattern')">Minimum eight characters</p>
+                        </div>
+                      </div>
+                   </div>
+                  
+                   <div class="">
+                   <button  type="submit" class="btn w-100 main-btn" id="btnLogin">
+                       <span *ngIf="ooh == true"><i class="fas fa-spinner fa-spin"></i></span>
+                      <span *ngIf="ooh == false" > login</span>
+                   </button>
+                   <div class="col-12 text-center pt-3">
+                    <div class=" "><a  class="link-unstyled cursor-pointer text-main   ">Forget your passowrd ?</a></div>
+                    <span class="">Not member yet ?<a routerLink="register" class="text-main ps-2 ds">Create account ?</a></span>
+                    <div *ngIf="erorr" class="alert alert-danger mt-4 text-center">
+                    {{erorr}}
+                    </div>
+                   </div>
+                   </div>
+                </form>
+
+                <footer>
+                   <p class="text-center small">
+                      Not a member yet?
+                      <a href="./register.html" class="link-secondary text-decoration-none" role="button">Create Account <i class="fa-solid fa-angle-right"></i></a>
+                   </p>
+                  
+                </footer>
+             </div>
+          </div>
+       </div>
+    </section>
+ </main>

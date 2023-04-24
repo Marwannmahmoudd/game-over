@@ -1,0 +1,12 @@
+.header{
+    background: url('/assets/paladins.b44d33d6e7ee1ba8.png') no-repeat ;
+    background-size: cover;
+    width: 100%;
+    height: 50vh;
+   
+}
+.header .index{
+    z-index: 213123;
+    height: 100%;
+  
+}

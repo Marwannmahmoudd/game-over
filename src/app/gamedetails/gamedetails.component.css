@@ -1,0 +1,11 @@
+body{
+    background-size: cover; 
+    background-position: center;
+}
+.layer{
+    background: linear-gradient(rgba(39,43,48,.9),#272b30);
+    height: 150vh;
+}
+img{
+    transition: all 0.1s ease-in-out!important;
+}

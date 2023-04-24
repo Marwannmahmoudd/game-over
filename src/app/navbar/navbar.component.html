@@ -1,0 +1,74 @@
+<div class="loader2" *ngIf="loaderservices.isloader |async" id="loader">
+   <span class="loader"></span>
+</div>
+<nav class="navbar navbar-expand-lg nav-bg border-bottom border-dark ">
+    <div class="container">
+       <h5 class="navbar-brand mb-0 text-uppercase">
+          <img src="./assets/logo.png" alt="logo photo" style="max-width: 80px"> GameOver
+       </h5>
+       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+         <i class="fa-solid fa-bars " id="ss"></i>
+       </button>
+       <div class="collapse small navbar-collapse" id="navbarSupportedContent">
+          <ul *ngIf="_userservices.token" class="navbar-nav me-auto ps-5 mb-2 mb-lg-0 menu">
+             <li class="nav-item">
+                <a role="button" class="nav-link  " aria-current="page" routerLink="home" >Home</a>
+             </li>
+             <li class="nav-item">
+                <a role="button" class="nav-link "  routerLink="all">All</a>
+             </li>
+             <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                 Platforms
+                </a>
+                <ul id="dd" class="dropdown-menu" (click)="select($event)">
+                  <li><a class="dropdown-item" routerLink="platform">pc</a></li>
+                  <li><a class="dropdown-item" routerLink="platform">browser</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                 sort-by
+                </a>
+                <ul id="dd" class="dropdown-menu" (click)="select2($event)">
+                 
+                  <li><a class="dropdown-item" routerLink="sort" >release-date</a></li>
+                  <li><a class="dropdown-item" routerLink="sort">popularity</a></li>
+                  <li><a class="dropdown-item" routerLink="sort">alphabetical</a></li>
+                  <li><a class="dropdown-item" routerLink="sort">relevance</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Categoris
+                </a>
+                <ul id="dd" class="dropdown-menu" (click)="select3($event)">
+                  <li><a class="dropdown-item" routerLink="cate">racing</a></li>
+                  <li><a class="dropdown-item" routerLink="cate">sports</a></li>
+                  <li><a class="dropdown-item" routerLink="cate">social</a></li>
+                  <li><a class="dropdown-item" routerLink="cate">shooter</a></li>
+                  <li><a class="dropdown-item" routerLink="cate">open-world</a></li>
+                  <li><a class="dropdown-item" routerLink="cate">zombie</a></li>
+                  <li><a class="dropdown-item" routerLink="cate">fantasy</a></li>
+                  <li><a class="dropdown-item" routerLink="cate">action-rpg</a></li>
+                  <li><a class="dropdown-item" routerLink="cate">flight</a></li>
+                  <li><a class="dropdown-item" routerLink="cate" >action</a></li>
+                  <li><a class="dropdown-item" routerLink="cate">battle-royale</a></li>
+                </ul>
+              </li>
+          </ul>
+          <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
+            <li class="nav-item">
+               <a *ngIf="!_userservices.token"  class="nav-link" routerLink="login">Login</a>
+           </li>
+           <li class="">
+               <a *ngIf="!_userservices.token"  class="nav-link btn-blue text-blue"  routerLink="register">join free</a>
+           </li>
+             <li class=" text-blue">
+                <span *ngIf="_userservices.token" role="button" class="nav-link  btn-blue text-blue" (click)=" _userservices.loginout()" id="logoutt">LogOut</span>
+             </li>
+          </ul>
+       </div>
+    </div>
+ </nav>
+

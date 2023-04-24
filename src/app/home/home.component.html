@@ -1,0 +1,50 @@
+<section class="header bg-transparent d-flex justify-content-center align-items-center flex-column">
+    <div class="pt-5">
+        <h1 class="index text-mm">Find & track the best <span class="text-blue px-2"> free-to-play </span>  games!</h1>
+    </div>
+
+    <div>
+        <p  class="lead text-muted">Track what you've played and search for what to play next! Plus get free premium loot! </p>
+    </div>
+   <div>
+    <p _ngcontent-uke-c8=""><a _ngcontent-uke-c8="" role="button" class="btn btn-outline-secondary btn-md ml-0 text-mm" >Browse Games</a></p>
+   </div>
+</section>
+<div class="container pb-5 pt-5">
+    <h2 class="py-5"><i _ngcontent-uke-c8="" class="fas fa-robot mr-2"></i>Personalized Recommendations</h2>
+    <div class="row row-cols-1 row-cols-md-1 row-cols-lg-2 row-cols-xl-3 g-4" >
+        <div class="col pb-5 productt" *ngFor="let data of populargames">
+         <a [routerLink]="['/details', data.id]">
+            <div   class="card h-100 bg-transparent" role="button" >
+               <div class="card-body">
+                  <figure class="position-relative">
+                     <img class="card-img-top object-fit-cover w-100" [src]="data.thumbnail" />
+                    
+                     
+                            </figure>
+                
+                            <figcaption>
+      
+                     <div class="hstack justify-content-between">
+                        <h3 class="h4">{{data.title}}</h3>
+                        <span class="badge text-bg-primary p-2">Free</span>
+                     </div>
+      
+                     <p class="card-text small  opacity-50">
+                        {{data.short_description.split(' ').splice(0,6).join(' ')}}
+                     </p>
+                     </figcaption>
+               </div>
+      
+               <footer class="card-footer small hstack justify-content-between">
+      
+                  <span class="badge badge-color">{{data.genre}}</span>
+                  <span class="badge badge-color">{{data.platform}}</span>
+               </footer>
+            </div>
+         </a>
+         </div>
+      
+    </div>
+   
+</div>

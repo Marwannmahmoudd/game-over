@@ -1,0 +1,36 @@
+<div class="container pb-5 pt-5">
+  
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4" >
+        <div class="col pb-5 productt" *ngFor="let data of populargames">
+         <a [routerLink]="['/details', data.id]">
+            <div   class="card h-100 bg-transparent" role="button" >
+               <div class="card-body">
+                  <figure class="position-relative">
+                     <img class="card-img-top object-fit-cover w-100" [src]="data.thumbnail" />
+                    
+                     
+                            </figure>
+                
+                            <figcaption>
+      
+                     <div class="hstack justify-content-between">
+                        <h3 class=" h4">{{data.title}}</h3>
+                        <span class="badge text-bg-primary p-2 pb-2">Free</span>
+                     </div>
+      
+                     <p class="card-text small  opacity-50">
+                        {{data.short_description.split(' ').splice(0,6).join(' ')}}
+                     </p>
+                     </figcaption>
+               </div>
+      
+               <footer class="card-footer small hstack justify-content-between">
+      
+                  <span class="badge badge-color">{{data.genre}}</span>
+                  <span class="badge badge-color">{{data.platform}}</span>
+               </footer>
+            </div>
+         </a>
+         </div>
+    </div>
+</div>

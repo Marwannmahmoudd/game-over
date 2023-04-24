@@ -1,0 +1,99 @@
+
+ <!-- ========== End Fixed ========== -->
+ <main class="container register min-vh-100 hstack">
+    <section class="register-area shadow w-100 rounded overflow-hidden">
+       <div class="row g-0">
+          <div class="col-lg-5 d-none d-md-block">
+             <div class="image"></div>
+          </div>
+          <div class="col-lg-7">
+             <div class="p-4">
+                <header class="text-center">
+                   <h2>Create My Account!</h2>
+                </header>
+                <form (ngSubmit)="formmm(register)" [formGroup]="register" id="register" class="row g-3 my-4" #ngForm="ngForm">
+                   <div class="col-md-6">
+                      <div class="form-data">
+                         <input type="text" id="firstName" class="form-control" placeholder="First Name" formControlName="name">
+                         <div *ngIf="register.get('name')?.status == 'INVALID' &&  ngForm.submitted || register.get('name')?.errors && register.get('name')?.touched" class="alert alert-danger" >
+                            <p class="m-0 text-danger" *ngIf="register.get('name')?.getError('maxlength')">max length is 10</p>
+                            <p class="m-0 text-danger" *ngIf="register.get('name')?.getError('minlength')">min length is 2</p>
+                            <p class="m-0 text-danger" *ngIf="register.get('name')?.getError('required')">Name is required</p>
+                            <p class="m-0 text-danger" *ngIf="register.get('name')?.getError('pattern')">Name is InValid</p>
+                        </div>
+                      </div>
+                   </div>
+                   <div class="col-md-6">
+                      <div class="form-data">
+                         <input type="text" id="lastName" class="form-control" placeholder="Last Name" formControlName="lastname">
+                         <div *ngIf="register.get('lastname')?.status == 'INVALID' && ngForm.submitted || register.get('lastName')?.errors && register.get('lastName')?.touched" class="alert alert-danger" >
+                            <p class="m-0 text-danger" *ngIf="register.get('lastname')?.getError('maxlength')">max length is 10</p>
+                            <p class="m-0 text-danger" *ngIf="register.get('lastname')?.getError('minlength')">min length is 2</p>
+                            <p class="m-0 text-danger" *ngIf="register.get('lastname')?.getError('required')">Name is required</p>
+                            <p class="m-0 text-danger" *ngIf="register.get('lastname')?.getError('pattern')">Name is InValid</p>
+                        </div>
+                      </div>
+                   </div>
+
+                   <div class="col-12">
+                      <div class="form-data">
+                        <input type="email" id="email" class="form-control" placeholder="Email Address" formControlName="email">
+                         <div *ngIf="register.get('email')?.errors && ngForm.submitted || register.get('email')?.errors && register.get('email')?.touched" class="alert alert-danger" >
+                            <p class="m-0 text-danger" *ngIf="register.get('email')?.getError('required')">email is required</p>
+                            <p class="m-0 text-danger" *ngIf="register.get('email')?.getError('email')">email is InValid</p>
+                        </div> 
+                      </div>
+                   </div>
+                   <div class="col-12">
+                      <div class="form-data">
+                         <input type="password" id="password" class="form-control" placeholder="Password" formControlName="password">
+                       
+<div *ngIf="register.get('password')?.errors && ngForm.submitted || register.get('password')?.errors && register.get('password')?.touched" class="alert alert-danger" >
+    <p class="m-0 text-danger" *ngIf="register.get('password')?.getError('required')">password is required</p>
+    <p class="m-0 text-danger" *ngIf="register.get('password')?.getError('pattern')">Minimum eight characters</p>
+</div>
+                      </div>
+                   </div>
+                   <div class="col-12">   
+    
+<input class="form-control " type="password" id="rePassword" placeholder="RePassword" formControlName="rePassword">
+       
+<div *ngIf="register.get('rePassword')?.errors && ngForm.submitted || register.get('rePassword')?.errors && register.get('rePassword')?.touched" class="alert alert-danger" >
+    <p class="m-0 text-danger" *ngIf="register.get('rePassword')?.getError('required')">repassword is required</p>
+    <p class="m-0 text-danger" *ngIf="register.get('rePassword')?.getError('passwordmatch')">password and repassword not match</p>
+    <p class="m-0 text-danger" *ngIf="register.get('rePassword')?.getError('pattern')">Minimum eight characters</p>
+</div>
+                   </div>
+                   <div class="col-12">
+                      <div class="form-data">
+                         <input type="number" id="age" class="form-control"  placeholder="Enter Age" formControlName="age">
+                         <div *ngIf="register.get('age')?.errors && ngForm.submitted || register.get('age')?.errors && register.get('age')?.touched" class="alert alert-danger" >
+                            <p class="m-0 text-danger" *ngIf="register.get('age')?.getError('required')">age is required</p>
+                            <p class="m-0 text-danger" *ngIf="register.get('age')?.getError('pattern')">max age is 200</p>
+                        </div>
+                      </div>
+                   </div>
+                   <div class="col-12">
+                    <button  type="submit" class="btn w-100 main-btn" id="btnRegister">
+
+                        <span *ngIf="ooh == true"><i class="fas fa-spinner fa-spin"></i></span>
+                       <span *ngIf="ooh == false" >Create account</span>
+                    </button>
+                      <p  *ngIf="erorr" class="text-center alert text-danger ">  {{erorr}}</p>
+                      
+                   </div>
+                </form>
+
+                <footer>
+                   <p class="text-center small">
+                      Already a member?
+                      <a href="./index.html" class="link-secondary text-decoration-none" role="button">LogIn <i class="fa-solid fa-angle-right"></i></a>
+                   </p>
+                  
+                </footer>
+             </div>
+          </div>
+       </div>
+    </section>
+ </main>
+
