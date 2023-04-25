@@ -13,7 +13,7 @@ import { GamedetailsComponent } from './gamedetails/gamedetails.component';
 import { AuthGuard } from './auth.guard';
 const routes: Routes = [ 
   {path:'',redirectTo:'home',pathMatch:'full'},
-  {path:'home', canActivate:[AuthGuard],component:HomeComponent},
+  {path:'home', component:HomeComponent},
   {path:'all',canActivate:[AuthGuard],component:AllComponent},
 {path:'register',component:RegisterComponent},
 {path:'login',component:LoginComponent},

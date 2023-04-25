@@ -11,6 +11,8 @@ import { BehaviorSubject } from 'rxjs';
 export class PlatformComponent  implements OnInit{
   populargames:any[]=[]
 platform:any
+index:any =20
+click:any = 1
 constructor(private _games:GamesService ){}
 
 ngOnInit(): void {
@@ -23,4 +25,8 @@ ngOnInit(): void {
   })
   
 }
+add(){
+  this.click ++
+  this.index = this.index * this.click
+  }
 }

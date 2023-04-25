@@ -16,6 +16,8 @@ export class GamedetailsComponent implements OnInit{
  data2:any
  data3:any
 video:any
+oog:boolean = true
+oog2:boolean = true
 @ViewChild('videoPlayer') videoplayer!: ElementRef;
 constructor(private game:GamesService ,private _active:ActivatedRoute , private loaderservices:LoaderService ){
  
@@ -55,8 +57,14 @@ ngOnInit(): void {
     this.data = res
     this.data2 = res.thumbnail.replace("thumbnail", "background")
     this.data3 = res.thumbnail.replace("thumbnail.jpg", "videoplayback.webm")
-    console.log(this.data3);
-    
+    console.log(res);
+    if(!res.minimum_system_requirements){
+      console.log("das");
+      
+this.oog = false
+console.log(this.oog);
+
+    }
   })
 }
 customOptions: OwlOptions = {

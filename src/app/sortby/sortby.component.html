@@ -1,7 +1,7 @@
 <div class="container pb-5 pt-5">
   
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4" >
-        <div class="col pb-5 productt" *ngFor="let data of populargames">
+        <div class="col pb-5 productt" *ngFor="let data of populargames.slice(0,index)">
          <a [routerLink]="['/details', data.id]">
             <div   class="card h-100 bg-transparent" role="button" >
                <div class="card-body">
@@ -32,6 +32,9 @@
             </div>
          </a>
          </div>
+    </div>
+    <div class="col-md-12">
+      <button class="btn btn-outline-secondary d-block mx-auto mb-5" (click)="add()">More Games <i class="fas fa-chevron-right small text-semiWhite"></i></button>
     </div>
 </div>
 

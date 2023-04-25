@@ -8,6 +8,8 @@ import { GamesService } from '../games.service';
 export class SortbyComponent {
   populargames:any[]=[]
   platform:any
+  index:any =20
+click:any = 1
   constructor(private _games:GamesService){}
   
   ngOnInit(): void {
@@ -19,4 +21,8 @@ export class SortbyComponent {
     })
     
   }
+  add(){
+    this.click ++
+    this.index = this.index * this.click
+    }
 }

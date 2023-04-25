@@ -7,11 +7,18 @@ import { GamesService } from '../games.service';
 })
 export class AllComponent implements OnInit{
   populargames:any[]=[]
+  index:any =20
+  click:any = 1
 constructor(private _games:GamesService){}
 ngOnInit(): void {
   this._games.getallgames().subscribe((res)=>{
     this.populargames = res;
+   
     
   })
+}
+add(){
+this.click ++
+this.index = this.index * this.click
 }
 }
