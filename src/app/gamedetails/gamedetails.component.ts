@@ -20,7 +20,7 @@ oog:boolean = true
 oog2:boolean = true
 @ViewChild('videoPlayer') videoplayer!: ElementRef;
 constructor(private game:GamesService ,private _active:ActivatedRoute , private loaderservices:LoaderService ){
- 
+
 }
 startVideo(video:any , img:any){
   img.classList.add('opacity-0')
@@ -52,12 +52,17 @@ ngOnInit(): void {
     setTimeout(() => {
       this.loaderservices.isloader.next(false)
     }, 400);
+      
     
     console.log(res.thumbnail.replace("thumbnail.jpg", "videoplayback.webm"));
+  
+      
+    
     this.data = res
     this.data2 = res.thumbnail.replace("thumbnail", "background")
     this.data3 = res.thumbnail.replace("thumbnail.jpg", "videoplayback.webm")
     console.log(res);
+
     if(!res.minimum_system_requirements){
       console.log("das");
       

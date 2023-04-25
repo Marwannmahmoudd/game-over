@@ -41,7 +41,7 @@
                    </button>
                    <div class="col-12 text-center pt-3">
                     <div class=" "><a  class="link-unstyled cursor-pointer text-main   ">Forget your passowrd ?</a></div>
-                    <span class="">Not member yet ?<a routerLink="register" class="text-main ps-2 ds">Create account ?</a></span>
+                    <span class="">Not member yet ?<a routerLink="/register" class="text-main ps-2 ds">Create account ?</a></span>
                     <div *ngIf="erorr" class="alert alert-danger mt-4 text-center">
                     {{erorr}}
                     </div>
@@ -52,7 +52,7 @@
                 <footer>
                    <p class="text-center small">
                       Not a member yet?
-                      <a (click)="gotoregister()" class="link-secondary text-decoration-none" role="button">Create Account <i class="fa-solid fa-angle-right"></i></a>
+                      <a routerLink="/register" class="link-secondary text-decoration-none" role="button">Create Account <i class="fa-solid fa-angle-right"></i></a>
                    </p>
                   
                 </footer>

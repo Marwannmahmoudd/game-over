@@ -1,6 +1,7 @@
 import { Component , OnInit} from '@angular/core';
 import { GamesService } from '../games.service';
-GamesService
+import { LoaderService } from '../loader.service';
+LoaderService
 @Component({
   selector: 'app-category',
   templateUrl: './category.component.html',
@@ -12,9 +13,11 @@ export class CategoryComponent {
   index:any =20
   click:any = 1
   oog:boolean =true
-  constructor(private _games:GamesService){}
+  constructor(private _games:GamesService , private loaderservices:LoaderService ){}
   ngOnInit(): void {
+    this.loaderservices.isloader.next(true)
     this._games.category.subscribe((x:any)=>{
+      this.loaderservices.isloader.next(false)
       this.populargames = x
       console.log(this.populargames);
       
@@ -28,7 +31,6 @@ export class CategoryComponent {
   }
  
   add(){
-    this.click ++
-    this.index = this.index * this.click
+    this.index = this.index + 20
     }
 }
