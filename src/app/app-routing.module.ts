@@ -21,7 +21,7 @@ const routes: Routes = [
 {path:'sort',canActivate:[AuthGuard],component:SortbyComponent},
 {path:'cate',canActivate:[AuthGuard],component:CategoryComponent},
 {path:'details/:id',canActivate:[AuthGuard],component:GamedetailsComponent},
-{path:'**',component:NotfoundComponent}
+{path:'**',component:RegisterComponent}
 ]
 @NgModule({
   imports: [RouterModule.forRoot(routes,{useHash:true})],

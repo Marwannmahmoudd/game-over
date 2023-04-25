@@ -23,6 +23,9 @@ login:FormGroup = new FormGroup ({
   email:new FormControl(null , [Validators.required,Validators.email]),
   password:new FormControl(null , [Validators.required,Validators.pattern(/^(?=.*?[0-9]).{8,}$/)]),
 })
+gotoregister(){
+  this._router.navigate(['./register'])
+}
 formmmm(login:FormGroup){
   
   

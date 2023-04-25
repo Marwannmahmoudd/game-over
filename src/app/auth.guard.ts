@@ -18,14 +18,14 @@ export class AuthGuard implements CanActivate {
          jwtDecode(JSON.stringify( localStorage.getItem("userdata")))
         } catch (error) {
          localStorage.removeItem('userdata')
-         this._router.navigate(['./login'])
+         this._router.navigate(['/login'])
          return false
         }
          return true
        }
        else{
          this.user.token = null 
-        this._router.navigate(['./login'])
+        this._router.navigate(['/login'])
          return false
        }
      }
