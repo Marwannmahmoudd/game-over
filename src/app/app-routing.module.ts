@@ -11,6 +11,7 @@ import { SortbyComponent } from './sortby/sortby.component';
 import { CategoryComponent } from './category/category.component';
 import { GamedetailsComponent } from './gamedetails/gamedetails.component';
 import { AuthGuard } from './auth.guard';
+
 const routes: Routes = [ 
   {path:'',redirectTo:'home',pathMatch:'full'},
   {path:'home',canActivate:[AuthGuard], component:HomeComponent},

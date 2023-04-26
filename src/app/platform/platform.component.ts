@@ -14,19 +14,21 @@ export class PlatformComponent  implements OnInit{
 platform:any
 index:any =20
 click:any = 1
+isLoading:boolean =true
 constructor(private _games:GamesService, private loaderservices:LoaderService ){}
 
 ngOnInit(): void {
-  this.loaderservices.isloader.next(true)
   this._games.platform.subscribe((x:any)=>{
-    this.loaderservices.isloader.next(false)
+    setTimeout(() => {
+ 
     console.log(x);
-     
+     this.isLoading = false
   this.populargames = x
     
     
-  })
+  },1000)
   
+})
 }
 add(){
   this.index = this.index + 20

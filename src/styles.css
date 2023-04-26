@@ -306,8 +306,13 @@ a{
 }
 .productt{
   transition: all 0.3s ease-in-out;
+ 
 }
 .productt:hover
 {
   transform: scale(1.05);
+}
+.titleee{font-size: 14px!important;}
+.card{
+  height: 100%;
 }

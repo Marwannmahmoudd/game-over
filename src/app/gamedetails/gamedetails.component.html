@@ -1,7 +1,19 @@
 <body style="background-image: url('{{data2}}');">
+   <div class="row" >
+   <div class="loading position-absolute top-0 start-0 w-100 h-100" *ngIf="loaderservices.isloader | async">
+      <div class="containee">
+        <div class="loader33">
+            <span class="circle"></span>
+            <span class="sqaure"></span>
+            <span class="triangle"></span>
+            <span class="circle"></span>
+        </div>
+      </div>
+    </div>
+   </div>
    <div class="layer">
 <div class="container">
-    <div class="row g-4" id="detailsData" >
+    <div class="row g-4" id="detailsData"   >
  
         <div class="col-md-4 py-5" >
             <div class="position-relative" (mouseenter)="startVideo(videoPlayer , img)" (mouseleave)="stopVideo(videoPlayer , img)" >
@@ -12,7 +24,7 @@
                   </video>
            
                </div>
-               <div class="row mt-3"> <div class="col-3 col-lg-2 me-2 " > 
+               <div class="row mt-3" > <div class="col-3 col-lg-2 me-2 " > 
              
                <span class="btn btn-dark mb-3 ">FREE</span> </div> 
                <div class="col ">
@@ -24,7 +36,7 @@
                </div>
            
          </div>
-         <div class="col-md-8 py-5">
+         <div class="col-md-8 py-5" *ngIf="!isloading">
          
             <div>
                <nav aria-label="breadcrumb">

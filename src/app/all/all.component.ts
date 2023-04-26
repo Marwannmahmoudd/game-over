@@ -11,12 +11,18 @@ export class AllComponent implements OnInit{
   populargames:any[]=[]
   index:any =20
   click:any = 1
+  isLoading:boolean =true
 constructor(private _games:GamesService , private loaderservices:LoaderService ){}
 ngOnInit(): void {
   this.loaderservices.isloader.next(true)
   this._games.getallgames().subscribe((res)=>{
-    this.loaderservices.isloader.next(false)
-    this.populargames = res;
+    setTimeout(() => {
+      this.loaderservices.isloader.next(false)
+      this.populargames = res;
+     this.isLoading = false
+    }, 1000);
+   let x = document.getElementById('sd')
+   console.log(x);
    
     
   })

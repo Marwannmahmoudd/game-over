@@ -12,19 +12,22 @@ export class SortbyComponent {
   platform:any
   index:any =20
 click:any = 1
+isLoading:boolean =true
   constructor(private _games:GamesService , private loaderservices:LoaderService ){}
   
   ngOnInit(): void {
-    this.loaderservices.isloader.next(true)
+   
     this._games.sort.subscribe((x:any)=>{
-      this.loaderservices.isloader.next(false)
+      setTimeout(() => {
+    
       this.populargames = x
       console.log(this.populargames);
+      this.isLoading = false
       
-      
-    })
+    },1000)
     
-  }
+  })
+}
   add(){
     this.index = this.index + 20
     }

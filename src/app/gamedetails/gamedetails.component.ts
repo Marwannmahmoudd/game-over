@@ -18,8 +18,9 @@ export class GamedetailsComponent implements OnInit{
 video:any
 oog:boolean = true
 oog2:boolean = true
+isloading:boolean = true
 @ViewChild('videoPlayer') videoplayer!: ElementRef;
-constructor(private game:GamesService ,private _active:ActivatedRoute , private loaderservices:LoaderService ){
+constructor(private game:GamesService ,private _active:ActivatedRoute , public loaderservices:LoaderService ){
 
 }
 startVideo(video:any , img:any){
@@ -49,9 +50,10 @@ ngOnInit(): void {
      
    })
   this.game.getdetails(this.id).subscribe((res)=>{
-    setTimeout(() => {
+  
       this.loaderservices.isloader.next(false)
-    }, 400);
+      this.isloading = false
+  
       
     
     console.log(res.thumbnail.replace("thumbnail.jpg", "videoplayback.webm"));

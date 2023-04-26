@@ -8,13 +8,15 @@ import { GamesService } from '../games.service';
 })
 export class HomeComponent implements OnInit{
   populargames:any[]=[]
+  isLoading:boolean =true
 constructor(private _games:GamesService){}
 ngOnInit(): void {
   this._games.getallgames().subscribe((res)=>{
+    setTimeout(() => {
     this.populargames = res.splice(0,3);
     console.log(res);
-    
-    
+    this.isLoading = false
+  }, 1000);
   })
 }
 }
